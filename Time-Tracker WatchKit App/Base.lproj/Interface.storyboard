@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+    </dependencies>
+    <scenes>
+        <!--home-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="home" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Time_Tracker_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="left" text="No. of players:" numberOfLines="2" id="1ah-GV-2Iw">
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                        </label>
+                        <label alignment="center" verticalAlignment="center" text="6" id="Xav-42-ZY5">
+                            <fontDescription key="font" type="system" pointSize="36"/>
+                        </label>
+                        <slider width="1" alignment="left" verticalAlignment="center" value="6" minimum="1" maximum="12" steps="11" id="pKd-EU-NBW">
+                            <connections>
+                                <action selector="sliderTapped:" destination="AgC-eL-Hgc" id="fwv-tn-h0s"/>
+                            </connections>
+                        </slider>
+                        <separator alignment="left" verticalAlignment="center" id="PGL-K4-aeA">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </separator>
+                        <button width="100" alignment="center" verticalAlignment="bottom" title="Next" id="0md-T0-VvR">
+                            <color key="backgroundColor" red="0.32534568586406243" green="0.7224943329015544" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="submitNumber" destination="AgC-eL-Hgc" id="5b6-bU-MhZ"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="displayNumber" destination="Xav-42-ZY5" id="5Va-x9-DAn"/>
+                        <outlet property="playerNumberSlider" destination="pKd-EU-NBW" id="2iN-29-JSV"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="35" y="39"/>
+        </scene>
+        <!--competitors-->
+        <scene sceneID="REE-c2-azC">
+            <objects>
+                <controller identifier="competitors" id="jUI-FN-Ifx" customClass="NameCompetitorsController" customModule="Time_Tracker_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="Ovm-vu-Zbf">
+                            <items>
+                                <tableRow identifier="EnterCompetitorsName" id="tHF-VU-SYt" customClass="EnterCompetitorsName" customModule="Time_Tracker_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="LMA-Fa-8cg">
+                                        <items>
+                                            <label width="28" height="36" alignment="left" verticalAlignment="center" text="#1" textAlignment="center" id="JHb-wR-Fna"/>
+                                            <separator alignment="left" id="Ayk-XM-R4Y">
+                                                <color key="color" cocoaTouchSystemColor="lightTextColor"/>
+                                            </separator>
+                                            <separator alignment="left" id="wrm-EF-VHS">
+                                                <color key="color" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </separator>
+                                            <label alignment="left" verticalAlignment="center" text="Enter Name" id="tGg-TZ-Ge0"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="competitorId" destination="JHb-wR-Fna" id="CMD-xz-qh4"/>
+                                        <outlet property="competitorName" destination="tGg-TZ-Ge0" id="3Tq-bI-waB"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <button width="100" alignment="center" verticalAlignment="bottom" title="Start!" id="QRP-k6-gVQ">
+                            <color key="backgroundColor" red="0.22836772011241702" green="0.0012486093737953396" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="startTournament" destination="jUI-FN-Ifx" id="G7a-XR-CsW"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="Ovm-vu-Zbf" id="wO1-CW-dpv"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="255" y="36"/>
+        </scene>
+        <!--tournament-->
+        <scene sceneID="eCh-q5-D2W">
+            <objects>
+                <controller identifier="tournament" id="FS3-7i-8Y3" customClass="TournamentController" customModule="Time_Tracker_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="eT0-jD-lik">
+                            <items>
+                                <tableRow identifier="SelectWinner" id="tyZ-Oq-veo" customClass="SelectWinner" customModule="Time_Tracker_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="105" alignment="left" layout="vertical" id="7vj-3y-tjl">
+                                        <items>
+                                            <separator alignment="left" id="sNt-He-Xtd">
+                                                <color key="color" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </separator>
+                                            <button width="1" height="30" alignment="left" title="Button" id="hz6-h1-LQ7">
+                                                <connections>
+                                                    <action selector="tapPlayerOne" destination="tyZ-Oq-veo" id="f8f-h8-9ca"/>
+                                                </connections>
+                                            </button>
+                                            <label alignment="center" verticalAlignment="center" text="VS" id="KBb-RR-Lq4">
+                                                <fontDescription key="font" type="system" pointSize="18"/>
+                                            </label>
+                                            <button width="1" height="30" alignment="center" verticalAlignment="bottom" title="Button" id="KsI-44-4xd">
+                                                <connections>
+                                                    <action selector="tapPlayerTwo" destination="tyZ-Oq-veo" id="LhQ-DP-iox"/>
+                                                </connections>
+                                            </button>
+                                            <separator alignment="left" verticalAlignment="bottom" id="RK1-F2-r8H">
+                                                <color key="color" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </separator>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="playerOne" destination="hz6-h1-LQ7" id="M9C-uk-ueb"/>
+                                        <outlet property="playerTwo" destination="KsI-44-4xd" id="AvZ-qJ-tWh"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <button width="1" alignment="left" title="Next Round" id="Qsf-9G-Lle">
+                            <connections>
+                                <action selector="nextRound" destination="FS3-7i-8Y3" id="KbW-qj-9sU"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="matches" destination="eT0-jD-lik" id="oQY-O8-TLc"/>
+                        <outlet property="nextRoundButton" destination="Qsf-9G-Lle" id="3LO-FO-uOV"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="480.35897435897436" y="38.794871794871796"/>
+        </scene>
+        <!--winner-->
+        <scene sceneID="wFW-Dx-MF2">
+            <objects>
+                <controller identifier="winner" id="ndl-rC-PRa" customClass="WinnerController" customModule="Time_Tracker_WatchKit_Extension">
+                    <items>
+                        <label alignment="center" text="Winner is:" id="DYi-ID-V7Z">
+                            <color key="textColor" red="0.31150112540000002" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="26"/>
+                        </label>
+                        <label alignment="center" verticalAlignment="center" text="Hani" id="zTj-3r-kyE">
+                            <fontDescription key="font" type="system" pointSize="29"/>
+                        </label>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="New Tournament" id="hdB-NX-EBo">
+                            <connections>
+                                <action selector="newTournament" destination="ndl-rC-PRa" id="r4V-TA-4qu"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="newTournament" destination="hdB-NX-EBo" id="Eyp-Cm-Dhg"/>
+                        <outlet property="winnerLabel" destination="zTj-3r-kyE" id="nAP-XV-JR3"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="697" y="37"/>
+        </scene>
+    </scenes>
+</document>
